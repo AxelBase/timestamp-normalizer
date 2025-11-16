@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-t" />
+		<title>AxelBase – Timestamp Normalizer</title>
+		<link rel="icon" href="../../AxelLab-Logo.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		
+		<link href="../../_app/immutable/assets/0.BROxbimm.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/10.BotRPGel.css" rel="stylesheet">
+		<link rel="modulepreload" href="../../_app/immutable/entry/start.DXgitLBZ.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Bd9IYyWs.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Be7nT79r.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Jy1OMwxR.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/DyipexqC.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Cxu8P0WK.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/app.HvZIPPLx.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/C76Q1Amt.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/4zFR_8zV.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/CFXLRCgK.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/k6WNNUDD.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/0.BG9aFk_t.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/B_4BvkFy.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/D98cHfCr.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/qc_RgP9a.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/CSY2cnUu.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/10.CpIbJPrg.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/0M_N2ZV5.js"><!--jo8es1--><meta name="description" content="See how AxelBase Timestamp Normalizer handles DST transitions — even when your input omits the timezone."/> <meta property="og:title" content="Handling Daylight Saving Time (DST) | AxelBase Blog"/> <meta property="og:description" content="See how AxelBase Timestamp Normalizer handles DST transitions — even when your input omits the timezone."/> <meta property="og:url" content="../../blog/posts/post7"/> <meta property="og:type" content="article"/> <meta name="twitter:card" content="summary_large_image"/><!----><title>Handling Daylight Saving Time (DST) | AxelBase Blog</title>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!----><header class="app-header svelte-12qhfyh"><nav class="container svelte-12qhfyh"><div class="nav-left svelte-12qhfyh"><a href="../../" class="nav-brand svelte-12qhfyh" aria-label="Home"><img src="../../AxelLab-Logo.ico" alt="AxelBase Logo" class="nav-logo svelte-12qhfyh"/> <span class="nav-brand-text svelte-12qhfyh">AxelBase</span></a></div> <div class="nav-right svelte-12qhfyh"><ul class="nav-links svelte-12qhfyh"><li><a class="nav-link svelte-12qhfyh" href="../../">Home</a></li> <li><a class="nav-link svelte-12qhfyh" href="#about">About</a></li> <li><a class="nav-link svelte-12qhfyh" href="#how-to-use">How to use</a></li> <li><a class="nav-link svelte-12qhfyh" href="#faq">FAQ</a></li> <li><a class="nav-link svelte-12qhfyh" href="../../blog">Blog</a></li></ul> <div class="bmac-wrapper svelte-12qhfyh"><button class="bmac-button svelte-12qhfyh" aria-haspopup="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.35,22.2L12,22A10,10,0,0,1,2,12V10A2,2,0,0,1,4,8H7.2A5.13,5.13,0,0,1,12,3A5.13,5.13,0,0,1,16.8,8H20A2,2,0,0,1,22,10V12A10,10,0,0,1,12.35,22.2M4,10V12A8,8,0,0,0,12,20A8,8,0,0,0,20,12V10H16.8A5.11,5.11,0,0,1,12.5,5.12A5.15,5.15,0,0,1,7.2,10H4Z"></path></svg> <span class="svelte-12qhfyh">Buy me a coffee</span></button> <!--[!--><!--]--></div></div></nav></header> <!--[--><!----><div class="container fade-in post-layout svelte-jo8es1"><div class="breadcrumbs svelte-jo8es1"><a href="../../blog" class="svelte-jo8es1">Blog</a> <span>/</span> <p class="svelte-jo8es1">Handling Daylight Saving Time (DST)</p></div> <article class="prose glass-card svelte-jo8es1"><h1 class="svelte-jo8es1">Handling Daylight Saving Time (DST)</h1> <p class="post-meta svelte-jo8es1">Published: November 10, 2025</p> <p class="svelte-jo8es1">DST breaks time. On <strong>March 9, 2025</strong>, New York jumps from <code>01:59 AM</code> to <code>03:00 AM</code>. <code>02:30 AM</code> never exists. But your log says it does. The <strong>AxelBase Timestamp Normalizer</strong> fixes this — automatically.</p> <h2 class="svelte-jo8es1">The DST Problem</h2> <p class="svelte-jo8es1">Input: <code>2025-03-09 02:30 America/New_York</code><br/> Native <code>Date</code>: Invalid or wrong<br/> Luxon: <strong>Adjusts to 03:30</strong> or flags error</p> <h2 class="svelte-jo8es1">How the Normalizer Handles It</h2> <p class="svelte-jo8es1">Luxon knows the IANA database. It:</p> <ul class="svelte-jo8es1"><li class="svelte-jo8es1">Detects <strong>spring forward</strong> (missing hour)</li> <li class="svelte-jo8es1">Detects <strong>fall back</strong> (duplicate hour)</li> <li class="svelte-jo8es1">Uses <strong>earlier offset</strong> in ambiguous cases</li></ul> <h2 class="svelte-jo8es1">Real Example</h2> <p class="svelte-jo8es1">Input: <code>2025-03-09 02:30</code> + <code>America/New_York</code><br/> Output:</p> <ul class="svelte-jo8es1"><li class="svelte-jo8es1"><strong>Parsed</strong>: Invalid → error shown</li> <li class="svelte-jo8es1"><strong>Adjusted</strong>: <code>2025-03-09T03:30:00-04:00</code> (EDT)</li></ul> <h2 class="svelte-jo8es1">Best Practice</h2> <p class="svelte-jo8es1">Always include the timezone in logs. The Normalizer will save you from DST bugs.</p> <h2 class="svelte-jo8es1">FAQ</h2> <details class="svelte-jo8es1"><summary class="svelte-jo8es1">Does it handle historical DST?</summary> <p class="svelte-jo8es1">Yes. Luxon’s database goes back decades.</p></details> <details class="svelte-jo8es1"><summary class="svelte-jo8es1">What about leap seconds?</summary> <p class="svelte-jo8es1">Not supported — but irrelevant for most use cases.</p></details> <p class="italic-note svelte-jo8es1">DST won’t break your data. Luxon won’t let it.</p></article></div><!----><!--]--> <footer class="app-footer svelte-12qhfyh"><div class="container footer-content svelte-12qhfyh"><span class="copyright svelte-12qhfyh">© AxelBase Timestamp Normalizer – 2025</span> <div class="footer-links svelte-12qhfyh"><a href="../../privacy" class="svelte-12qhfyh">Privacy</a> <a href="../../terms" class="svelte-12qhfyh">Terms</a></div></div></footer><!----><!--]--> <!--[!--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_x0bqft = {
+						base: new URL("../..", location).pathname.slice(0, -1),
+						assets: "/timestamp-normalizer"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../../_app/immutable/entry/start.DXgitLBZ.js"),
+						import("../../_app/immutable/entry/app.HvZIPPLx.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 10],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

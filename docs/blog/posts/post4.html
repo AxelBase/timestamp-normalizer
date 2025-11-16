@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-t" />
+		<title>AxelBase – Timestamp Normalizer</title>
+		<link rel="icon" href="../../AxelLab-Logo.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		
+		<link href="../../_app/immutable/assets/0.BROxbimm.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/7.CPyhhRMQ.css" rel="stylesheet">
+		<link rel="modulepreload" href="../../_app/immutable/entry/start.DXgitLBZ.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Bd9IYyWs.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Be7nT79r.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Jy1OMwxR.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/DyipexqC.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/Cxu8P0WK.js">
+		<link rel="modulepreload" href="../../_app/immutable/entry/app.HvZIPPLx.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/C76Q1Amt.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/4zFR_8zV.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/CFXLRCgK.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/k6WNNUDD.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/0.BG9aFk_t.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/B_4BvkFy.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/D98cHfCr.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/qc_RgP9a.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/CSY2cnUu.js">
+		<link rel="modulepreload" href="../../_app/immutable/nodes/7.D_Y3zbyj.js">
+		<link rel="modulepreload" href="../../_app/immutable/chunks/0M_N2ZV5.js"><!--led0iy--><meta name="description" content="Learn how +02:00, -05:00, and Z work in ISO 8601 — and why preserving the original offset is critical for logs and APIs."/> <meta property="og:title" content="Understanding Timezone Offsets | AxelBase Blog"/> <meta property="og:description" content="Learn how +02:00, -05:00, and Z work in ISO 8601 — and why preserving the original offset is critical for logs and APIs."/> <meta property="og:url" content="../../blog/posts/post4"/> <meta property="og:type" content="article"/> <meta name="twitter:card" content="summary_large_image"/><!----><title>Understanding Timezone Offsets | AxelBase Blog</title>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!----><header class="app-header svelte-12qhfyh"><nav class="container svelte-12qhfyh"><div class="nav-left svelte-12qhfyh"><a href="../../" class="nav-brand svelte-12qhfyh" aria-label="Home"><img src="../../AxelLab-Logo.ico" alt="AxelBase Logo" class="nav-logo svelte-12qhfyh"/> <span class="nav-brand-text svelte-12qhfyh">AxelBase</span></a></div> <div class="nav-right svelte-12qhfyh"><ul class="nav-links svelte-12qhfyh"><li><a class="nav-link svelte-12qhfyh" href="../../">Home</a></li> <li><a class="nav-link svelte-12qhfyh" href="#about">About</a></li> <li><a class="nav-link svelte-12qhfyh" href="#how-to-use">How to use</a></li> <li><a class="nav-link svelte-12qhfyh" href="#faq">FAQ</a></li> <li><a class="nav-link svelte-12qhfyh" href="../../blog">Blog</a></li></ul> <div class="bmac-wrapper svelte-12qhfyh"><button class="bmac-button svelte-12qhfyh" aria-haspopup="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12.35,22.2L12,22A10,10,0,0,1,2,12V10A2,2,0,0,1,4,8H7.2A5.13,5.13,0,0,1,12,3A5.13,5.13,0,0,1,16.8,8H20A2,2,0,0,1,22,10V12A10,10,0,0,1,12.35,22.2M4,10V12A8,8,0,0,0,12,20A8,8,0,0,0,20,12V10H16.8A5.11,5.11,0,0,1,12.5,5.12A5.15,5.15,0,0,1,7.2,10H4Z"></path></svg> <span class="svelte-12qhfyh">Buy me a coffee</span></button> <!--[!--><!--]--></div></div></nav></header> <!--[--><!----><div class="container fade-in post-layout svelte-led0iy"><div class="breadcrumbs svelte-led0iy"><a href="../../blog" class="svelte-led0iy">Blog</a> <span>/</span> <p class="svelte-led0iy">Understanding Timezone Offsets</p></div> <article class="prose glass-card svelte-led0iy"><h1 class="svelte-led0iy">Understanding Timezone Offsets</h1> <p class="post-meta svelte-led0iy">Published: October 25, 2025</p> <p class="svelte-led0iy">You’ve seen them: <code>+02:00</code>, <code>-05:00</code>, <code>Z</code>. But what do they mean — and why does the <strong>AxelBase Timestamp Normalizer</strong> show <em>both</em> ISO UTC and ISO with offset? Let’s break it down.</p> <h2 class="svelte-led0iy">The Two ISO Outputs</h2> <p class="svelte-led0iy">When you convert <code>2025-11-16 14:19</code> in <code>Africa/Johannesburg</code>, you get:</p> <ul class="svelte-led0iy"><li class="svelte-led0iy"><strong>ISO UTC</strong>: <code>2025-11-16T12:19:00Z</code></li> <li class="svelte-led0iy"><strong>ISO with Offset</strong>: <code>2025-11-16T14:19:00+02:00</code></li></ul> <h3>What is Z?</h3> <p class="svelte-led0iy"><code>Z</code> stands for <strong>Zulu time</strong> — another name for <strong>UTC</strong>. It means “zero offset from UTC.” It’s the universal standard for systems that need consistency across regions.</p> <h3>What is +02:00?</h3> <p class="svelte-led0iy">This is the <strong>local offset</strong>. Johannesburg is 2 hours ahead of UTC. So:</p> <pre><code>Local Time = UTC Time + Offset</code></pre> <h2 class="svelte-led0iy">Why Preserve the Offset?</h2> <p class="svelte-led0iy">Because <strong>context matters</strong>. A log entry at <code>14:19+02:00</code> tells you:</p> <ul class="svelte-led0iy"><li class="svelte-led0iy">The event happened at 2:19 PM local time</li> <li class="svelte-led0iy">It was 12:19 PM in London</li> <li class="svelte-led0iy">The server was in SAST</li></ul> <p class="svelte-led0iy">Converting everything to <code>Z</code> loses this. That’s why the Normalizer gives you <em>both</em>.</p> <h2 class="svelte-led0iy">Common Offset Patterns</h2> <table class="table table-bordered"><tbody><tr><th>Zone</th><th>Offset</th><th>Example</th></tr><tr><td>UTC</td><td><code>Z</code></td><td><code>12:19:00Z</code></td></tr><tr><td>SAST</td><td><code>+02:00</code></td><td><code>14:19:00+02:00</code></td></tr><tr><td>EST</td><td><code>-05:00</code></td><td><code>07:19:00-05:00</code></td></tr><tr><td>IST</td><td><code>+05:30</code></td><td><code>17:49:00+05:30</code></td></tr></tbody></table> <h2 class="svelte-led0iy">When to Use Which</h2> <ul class="svelte-led0iy"><li class="svelte-led0iy"><strong>Use <code>Z</code></strong>: Databases, APIs, event scheduling</li> <li class="svelte-led0iy"><strong>Use offset</strong>: Logs, user-facing timestamps, audit trails</li></ul> <h2 class="svelte-led0iy">FAQ</h2> <details class="svelte-led0iy"><summary class="svelte-led0iy">Why not just use local time?</summary> <p class="svelte-led0iy">Local time varies by user. UTC + offset is unambiguous and sortable.</p></details> <details class="svelte-led0iy"><summary class="svelte-led0iy">Does the offset change with DST?</summary> <p class="svelte-led0iy">Yes. Luxon adjusts automatically. SAST doesn’t observe DST, but EST/EDT does.</p></details> <p class="italic-note svelte-led0iy">Know your <code>Z</code> from your <code>+02:00</code>. Your data depends on it.</p></article></div><!----><!--]--> <footer class="app-footer svelte-12qhfyh"><div class="container footer-content svelte-12qhfyh"><span class="copyright svelte-12qhfyh">© AxelBase Timestamp Normalizer – 2025</span> <div class="footer-links svelte-12qhfyh"><a href="../../privacy" class="svelte-12qhfyh">Privacy</a> <a href="../../terms" class="svelte-12qhfyh">Terms</a></div></div></footer><!----><!--]--> <!--[!--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_x0bqft = {
+						base: new URL("../..", location).pathname.slice(0, -1),
+						assets: "/timestamp-normalizer"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../../_app/immutable/entry/start.DXgitLBZ.js"),
+						import("../../_app/immutable/entry/app.HvZIPPLx.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 7],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

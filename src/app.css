@@ -1,0 +1,138 @@
+/* src/app.css */
+
+/* --- 🎨 Color Palette & Root Variables --- */
+:root {
+	--signal-violet: #924e7d;
+	--white: #ffffff;
+	--light-gray: #f8f9fa;
+	--text-color: #212529;
+	--text-color-light: #495057;
+
+	/* Glassmorphism */
+	--glass-bg: rgba(255, 255, 255, 0.45);
+	--glass-border: rgba(255, 255, 255, 0.2);
+	--glass-shadow: 0 8px 32px 0 rgba(146, 78, 125, 0.2); /* Soft violet shadow */
+
+	/* Bootstrap Overrides */
+	--bs-primary: var(--signal-violet);
+	--bs-primary-rgb: 146, 78, 125;
+	--bs-body-font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
+		sans-serif;
+	--bs-body-color: var(--text-color);
+	--bs-border-radius: 0.5rem;
+	--bs-border-radius-lg: 0.75rem;
+	--bs-border-radius-sm: 0.375rem;
+}
+
+/* --- 🌐 Global Styles --- */
+body {
+	/* --- ❗ FIX: Added margin: 0; to remove top space --- */
+	margin: 0;
+	/* Dynamic Gradient Background */
+	background: linear-gradient(135deg, #fdfcff 0%, #f3eef2 100%);
+	background-attachment: fixed;
+	min-height: 100vh;
+	font-family: var(--bs-body-font-family);
+	color: var(--text-color);
+	padding-top: 80px; /* Offset for sticky navbar */
+	padding-bottom: 60px; /* Offset for fixed footer */
+}
+
+/* ---  Glassmorphism & Card Styling --- */
+.glass-card {
+	background: var(--glass-bg);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border-radius: var(--bs-border-radius-lg);
+	border: 1px solid var(--glass-border);
+	box-shadow: var(--glass-shadow);
+	transition: all 0.3s ease;
+}
+
+/* Card hover lift effect */
+.glass-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 12px 36px 0 rgba(146, 78, 125, 0.25);
+}
+
+/* --- 📝 Form Element Styling --- */
+.form-control,
+.form-select {
+	background: rgba(255, 255, 255, 0.7);
+	border: 1px solid var(--glass-border);
+	box-shadow: none;
+	transition: all 0.2s ease;
+	font-weight: 400;
+}
+
+.form-control:focus,
+.form-select:focus {
+	background: var(--white);
+	border-color: var(--signal-violet);
+	box-shadow: 0 0 0 0.25rem rgba(146, 78, 125, 0.25);
+}
+
+.form-label {
+	font-weight: 600;
+	color: var(--signal-violet);
+}
+
+/* --- 🔘 Button Styling --- */
+.btn {
+	transition: all 0.25s ease;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary {
+	background: var(--signal-violet);
+	border-color: var(--signal-violet);
+	font-weight: 600;
+}
+
+.btn-primary:hover {
+	background: #7a3f67;
+	border-color: #7a3f67;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(146, 78, 125, 0.3);
+}
+
+.btn-outline-primary {
+	color: var(--signal-violet);
+	border-color: var(--signal-violet);
+	font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+	color: var(--white);
+	background: var(--signal-violet);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(146, 78, 125, 0.3);
+}
+
+/* --- ⬆️ Page Animations --- */
+.fade-in-up {
+	animation: fadeInUp 0.6s ease-out forwards;
+	opacity: 0;
+	transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* --- 📜 Placeholder Section Styling --- */
+.page-section {
+	padding: 60px 0;
+	min-height: 300px;
+	border-top: 1px solid var(--glass-border);
+}
+
+.page-section h2 {
+	color: var(--signal-violet);
+	font-weight: 700;
+	margin-bottom: 2rem;
+	text-align: center;
+}
