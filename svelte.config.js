@@ -15,7 +15,7 @@ const config = {
       base: '/timestamp-normalizer'
     },
     prerender: {
-      entries: ['*', '/sitemap.xml'],
+      entries: ['*', '/sitemap-new.xml'],
       handleHttpError: 'warn',
       handleMissingId: () => {}
     }
