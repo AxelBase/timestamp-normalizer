@@ -1,4 +1,3 @@
 User-agent: *
-Disallow:
-
-Sitemap: https://https://axelbase.github.io/arn-parser/sitemap.xml
+Allow: /
+Sitemap: https://axelbase.github.io/timestamp-normalizer/sitemap.xml

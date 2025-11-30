@@ -15,9 +15,8 @@ const config = {
       base: '/timestamp-normalizer'
     },
     prerender: {
-      entries: ['*'],
+      entries: ['*', '/sitemap.xml'],
       handleHttpError: 'warn',
-      // Ignore missing fragment IDs (like #about on /blog)
       handleMissingId: () => {}
     }
   }
