@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://axelbase.github.io/timestamp-normalizer/sitemap-new.xml
+
+Sitemap: https://timestamp-normalizer.vercel.app/sitemap.xml
